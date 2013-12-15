@@ -1,0 +1,15 @@
+rails new dominio -d mysql
+rake db:create
+rake db:version
+rails generate model Domain
+# Primero crearemos las migraciones 
+rails generate migration CreateDomain name:string expdate:date
+rails generate migration CreateRegistrar name:string url:string contact:string
+rails generate migration CreateAccount user:string mail:string password:string
+rails generate migration CreateApp name:string url:string version:string
+# Migramos 
+rake db:migrate
+rails generate model Domain 
+rails generate model Registrar 
+rails generate model Account 
+rails generate model App
